@@ -1,0 +1,6 @@
+<h1>{{ notatka.tytul }}</h1>
+<p>{{ notatka.tresc }}</p>
+<p>Autor: {{ notatka.autor }}</p>
+<p>Data utworzenia: {{ notatka.data_utworzenia }}</p>
+<a href="{% url 'edytuj_notatke' notatka.pk %}">Edytuj</a>
+<a href="{% url 'lista_notatek' %}">Powrót do listy</a>

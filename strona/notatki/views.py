@@ -20,7 +20,8 @@ def dodaj_notatke(request):
 
 def szczegoly_notatki(request, pk):
     notatka = get_object_or_404(Note, pk=pk)
-    return render(request, 'notatki/szczegoly_notatki.html', {'notatka': notatka})
+    return render(request, 'notatki/szczegoly_notatki.html',
+                  {'notatka': notatka})
 
 def edytuj_notatke(request, pk):
     notatka = get_object_or_404(Note, pk=pk)
