@@ -1,10 +1,14 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Note
 from .forms import NotatkaForm
+from django.core.paginator import Paginator
 
 def lista_notatek(request):
-    notatki = Note.objects.all()
-    return render(request, 'notatki/lista_notatek.html', {'notatki': notatki})
+    notatki = Note.objects.all().order_by('-priorytet')
+    paginator = Paginator(notatki, 5)
+    page_number = request.GET.get('page')
+    notes = paginator.get_page(page_number)
+    return render(request, 'notatki/lista_notatek.html', {'notes': notes})
 
 def dodaj_notatke(request):
     if request.method == 'POST':

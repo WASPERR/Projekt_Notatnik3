@@ -4,4 +4,4 @@ from .models import Note
 class NotatkaForm(forms.ModelForm):
     class Meta:
         model = Note
-        fields = ['tytul', 'tresc']
+        fields = ['tytul', 'tresc', 'priorytet']

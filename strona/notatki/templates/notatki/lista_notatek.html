@@ -1,4 +1,5 @@
 {% load static %}
+
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
@@ -9,13 +10,30 @@
 <body>
 <nav><h1>Lista Notatek</h1></nav>
 <ul>
-    {% for notatka in notatki %}
+    {% for notatka in notes %}
     <li>
         <a href="{% url 'szczegoly_notatki' notatka.pk %}">{{ notatka.tytul }}</a>
     </li>
+    {% empty %}
+    <li>Brak notatek do wyświetlenia.</li>  <!-- Dodaj tę linijkę, aby informować o braku notatek -->
     {% endfor %}
 </ul>
 <a href="{% url 'dodaj_notatke' %}">Dodaj nową notatkę</a>
+<div class="pagination">
+    <span class="step-links">
+        {% if notes.has_previous %}
+        <a href="?page={{ notes.previous_page_number }}">Poprzednia</a>
+        {% endif %}
+
+        <span class="current">
+            {{ notes.number }} z {{ notes.paginator.num_pages }}.
+        </span>
+
+        {% if notes.has_next %}
+            <a href="?page={{ notes.next_page_number }}">Następna</a>
+        {% endif %}
+    </span>
+</div>
 </body>
 </html>
 
