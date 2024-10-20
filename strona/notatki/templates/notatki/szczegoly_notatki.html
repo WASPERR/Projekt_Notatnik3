@@ -1,6 +1,18 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notatki</title>
+    <link rel="stylesheet" href="{% static 'notatki/style.css' %}">
+</head>
+<body>
 <h1>{{ notatka.tytul }}</h1>
 <p>{{ notatka.tresc }}</p>
 <p>Autor: {{ notatka.autor }}</p>
 <p>Data utworzenia: {{ notatka.data_utworzenia }}</p>
 <a href="{% url 'edytuj_notatke' notatka.pk %}">Edytuj</a>
 <a href="{% url 'lista_notatek' %}">Powrót do listy</a>
+</body>
+
