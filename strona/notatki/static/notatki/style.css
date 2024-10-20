@@ -84,8 +84,8 @@ a {
     text-align: center;
 }
 .previous {
-    margin-left: 0;
+    text-align: left;
 }
 .next {
-    margin: 0;
+    text-align: right;
 }
