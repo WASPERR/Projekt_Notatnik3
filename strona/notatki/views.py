@@ -5,7 +5,7 @@ from django.core.paginator import Paginator
 
 def lista_notatek(request):
     notatki = Note.objects.all().order_by('-priorytet')
-    paginator = Paginator(notatki, 5)
+    paginator = Paginator(notatki, 8)
     page_number = request.GET.get('page')
     notes = paginator.get_page(page_number)
     return render(request, 'notatki/lista_notatek.html', {'notes': notes})

@@ -6,34 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notatki</title>
     <link rel="stylesheet" href="{% static 'notatki/style.css' %}">
+
 </head>
 <body>
-<nav><h1>Lista Notatek</h1></nav>
-<ul>
-    {% for notatka in notes %}
-    <li>
-        <a href="{% url 'szczegoly_notatki' notatka.pk %}">{{ notatka.tytul }}</a>
-    </li>
-    {% empty %}
-    <li>Brak notatek do wyświetlenia.</li>  <!-- Dodaj tę linijkę, aby informować o braku notatek -->
-    {% endfor %}
-</ul>
-<a href="{% url 'dodaj_notatke' %}">Dodaj nową notatkę</a>
-<div class="pagination">
-    <span class="step-links">
-        {% if notes.has_previous %}
-        <a href="?page={{ notes.previous_page_number }}">Poprzednia</a>
-        {% endif %}
+    <nav class="flex_center">
+        <h1 class="Note_listT">Lista Notatek</h1>
+    </nav>
+    <main class="main">
+        <ul class="ul_list">
+            {% for notatka in notes %}
+            <li>
+                <div class="list_el">
+                    <h2>
+                        <div class="flex_center priority">{{ notatka.priorytet }}  </div>
+                        <a href="{% url 'szczegoly_notatki' notatka.pk %}" class="flex_center prio">{{ notatka.tytul }}</a>
+                    </h2>
+                </div>
+            </li>
+            {% empty %}
+            <li>Brak notatek do wyświetlenia.</li>
+            {% endfor %}
+        </ul>
 
-        <span class="current">
-            {{ notes.number }} z {{ notes.paginator.num_pages }}.
-        </span>
-
-        {% if notes.has_next %}
-            <a href="?page={{ notes.next_page_number }}">Następna</a>
-        {% endif %}
-    </span>
-</div>
+    </main>
+    <footer class="footer">
+        <a href="{% url 'dodaj_notatke' %}">Dodaj nową notatkę</a>
+        <div class="pagination">
+            <div class="step-links">
+                {% if notes.has_previous %}
+                <div class="previous">
+                    <a href="?page={{ notes.previous_page_number }}">Poprzednia Strona</a>
+                </div>
+                {% endif %}
+                {% if notes.has_next %}
+                <div class="next">
+                    <a href="?page={{ notes.next_page_number }}">Następna Strona</a>
+                </div>
+                {% endif %}
+                <div class="current">
+                    {{ notes.number }} z {{ notes.paginator.num_pages }}
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
 

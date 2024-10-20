@@ -1,16 +1,91 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Trebuchet MS";
 }
 
+.flex_center {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 30px;
+}
+.list_el{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+.ul_list{
+    list-style: none;
+}
+.Note_listT {
+    margin: 0;
+    padding: 20px 0;
+}
 h1 {
     color: #333;
 }
 
 a {
     text-decoration: none;
-    color: #007BFF;
+    color: darkcyan;
+}
+.priority {
+    align-content: center;
+    justify-content: center;
+}
+@layer demo.support {
+
+  :root {
+    --hue: 200; /* change me */
+    --bg: oklch(35% .3 var(--hue));
+    --text: oklch(85% .1 var(--hue));
+    --shadow: oklch(25% .2 var(--hue));
+    --highlight: oklch(98% .05 var(--hue));
+  }
+    .prio {
+    margin: 20px;
+    margin-top: 0px;
 }
 
-a:hover {
-    text-decoration: underline;
+  * {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  html {
+    block-size: 100%;
+    background-color: var(--bg);
+    color: var(--text);
+  }
+
+  body {
+    min-block-size: 100%;
+    font-family: system-ui, sans-serif;
+    display: grid;
+    gap: 20vh;
+  }
+
+  h1 {
+    font-size: 13vi;
+    letter-spacing: -.15ch;
+    line-height: .75;
+  }
+
+  small {
+    max-inline-size: 30ch;
+  }
+
+}
+.footer {
+    display: flex;
+    margin-top: 46%;
+    margin-left: 0%;
+    position: fixed;
+    justify-content: center;
+    text-align: center;
+}
+.previous {
+    margin-left: 0;
+}
+.next {
+    margin: 0;
 }
