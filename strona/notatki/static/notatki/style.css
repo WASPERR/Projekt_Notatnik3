@@ -40,6 +40,7 @@ a {
     --text: oklch(85% .1 var(--hue));
     --shadow: oklch(25% .2 var(--hue));
     --highlight: oklch(98% .05 var(--hue));
+      --form: oklch(75%,.05 var(--hue));
   }
     .prio {
     margin: 20px;
@@ -77,7 +78,7 @@ a {
 }
 .footer {
     display: flex;
-    margin-top: 46%;
+    margin-top: 47%;
     margin-left: 0%;
     position: fixed;
     justify-content: space-between;
